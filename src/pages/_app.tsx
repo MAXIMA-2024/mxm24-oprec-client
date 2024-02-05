@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   return (
-    <Stack minH={"100vh"} minW={"100vw"} bgColor={"red"} p={"4rem"}>
+    <Stack minH={"100vh"} minW={"100vw"}>
       <Outlet />
     </Stack>
   );

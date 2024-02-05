@@ -1,10 +1,23 @@
 import { Stack, Image, Button, VisuallyHidden, Box } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+import { useState } from "react";
 
 import { motion } from "framer-motion";
 
+import ModalCheck from "@/components/ModalCheck";
+
 const LandingPage = () => {
   const openDate = new Date("2024-02-07T00:00:00Z");
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCheckButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <Stack
@@ -28,7 +41,7 @@ const LandingPage = () => {
       <VisuallyHidden>Welcome to Maxima 2024</VisuallyHidden>
 
       {/* button */}
-      {new Date() >= openDate ? (
+      {new Date() <= openDate ? (
         <Stack
           direction={"row"}
           pos={"absolute"}
@@ -76,9 +89,12 @@ const LandingPage = () => {
             color={"white"}
             fontFamily={"Minal"}
             letterSpacing={"1px"}
+            onClick={handleCheckButtonClick}
           >
             CHECK
           </Button>
+          <ModalCheck isOpen={isModalOpen} onClose={handleCloseModal} />
+          {/* <ModalCheck /> */}
         </Stack>
       ) : (
         <Box

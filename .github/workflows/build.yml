@@ -6,10 +6,8 @@ on:
   pull_request:
     branches: ["main"]
 
-# env:
-#   nanti aja, sesuai kebutuhan
-#   VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
-#   VITE_RECAPTCHA_SITE_KEY: ${{ vars.VITE_RECAPTCHA_SITE_KEY }}
+env:
+  VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
 
 jobs:
   deploy:

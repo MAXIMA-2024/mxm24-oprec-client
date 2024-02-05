@@ -39,8 +39,8 @@ const LandingPage = () => {
             to={"/daftar"}
             bgColor={"#b00034"}
             borderRadius={"full"}
-            p={"2rem"}
-            px={"2rem"}
+            p={"1.5rem"}
+            px={"1.5rem"}
             // mb={["8rem", "8rem", "0", "0", "0"]}
             cursor={"pointer"}
             shadow={"lg"}
@@ -61,8 +61,8 @@ const LandingPage = () => {
           <Button
             bgColor={"#b00034"}
             borderRadius={"full"}
-            p={"2rem"}
-            px={"2rem"}
+            p={"1.5rem"}
+            px={"1.5rem"}
             // mb={["8rem", "8rem", "0", "0", "0"]}
             cursor={"pointer"}
             shadow={"lg"}
@@ -85,9 +85,9 @@ const LandingPage = () => {
           bgColor={"#b00034"}
           borderRadius={"full"}
           p={"1rem"}
-          px={"2rem"}
+          px={"1.5rem"}
           pos={"absolute"}
-          bottom={["34%", "26%", "18%", "18%", "18%"]}
+          bottom={["34%", "22%", "14%", "14%", "14%"]}
           // mb={["8rem", "8rem", "0", "0", "0"]}
           shadow={"lg"}
           transition="background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"

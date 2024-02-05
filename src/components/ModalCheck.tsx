@@ -10,21 +10,38 @@ import {
   Text,
   Button,
 } from "@chakra-ui/react";
-import ResultModal from "./ResultModal";
+import ResultModal from "@/components/ResultModal";
+
+import useApi, { ResponseModel, useToastErrorHandler } from "@/hooks/useApi";
 
 interface ModalCheckProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ModalCheck: React.FC<ModalCheckProps> = ({ isOpen, onClose }) => {
+type InterviewStatus = {
+  nim: string;
+  nama: string;
+  divisi: string;
+  divisiAlt: string;
+  ruangan: string;
+  tanggal: string;
+  status: "Registered" | "Interview" | "Accepted" | "Rejected";
+  divisiFinal: string;
+};
+
+const ModalCheck = ({ isOpen, onClose }: ModalCheckProps) => {
+  const api = useApi();
+  const errorHandler = useToastErrorHandler();
+
   const [resultModalOpen, setResultModalOpen] = useState<boolean>(false);
-  const [interviewStatus, setInterviewStatus] = useState<
-    "pass" | "fail" | "registered"
-  >("registered");
+  const [interviewStatus, setInterviewStatus] =
+    useState<InterviewStatus | null>(null);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [nim, setNim] = useState<string>("");
-  const isNimLengthValid = nim.trim().length >= 11;
+  const isNimLengthValid = nim.trim().length === 11;
 
   const handleNimChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const numericInput = event.target.value.replace(/[^0-9]/g, "");
@@ -32,12 +49,22 @@ const ModalCheck: React.FC<ModalCheckProps> = ({ isOpen, onClose }) => {
   };
 
   const handleCheckButtonClick = () => {
-    // onClose();
-    setResultModalOpen(true);
+    setIsLoading(true);
+    api
+      .get<ResponseModel<InterviewStatus>>(`/data/${nim}`)
+      .then(({ data }) => {
+        setInterviewStatus(data.data);
+        setResultModalOpen(true);
+      })
+      .catch(errorHandler)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const handleResultModalClose = () => {
     setResultModalOpen(false);
+    setInterviewStatus(null);
     onClose();
   };
 
@@ -45,8 +72,8 @@ const ModalCheck: React.FC<ModalCheckProps> = ({ isOpen, onClose }) => {
     <>
       <Modal isOpen={isOpen} isCentered onClose={onClose}>
         <ModalOverlay />
-        <ModalContent bgColor={"#e9e9c0"}>
-          <ModalHeader>Interview Test Status</ModalHeader>
+        <ModalContent bgColor={"#e9e9c0"} m={"1rem"}>
+          <ModalHeader>Check your registration status!</ModalHeader>
           <ModalBody>
             <Text mb={"10px"}>Enter your NIM in the input box:</Text>
             <Input
@@ -65,9 +92,15 @@ const ModalCheck: React.FC<ModalCheckProps> = ({ isOpen, onClose }) => {
               Close
             </Button>
             <Button
-              colorScheme="teal"
+              // colorScheme="teal"
+              bgColor={"#F59D00"}
+              color={"white"}
+              _hover={{
+                bgColor: "#E79200",
+              }}
               onClick={handleCheckButtonClick}
               isDisabled={!isNimLengthValid}
+              isLoading={isLoading}
             >
               Check
             </Button>

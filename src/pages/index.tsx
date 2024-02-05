@@ -32,6 +32,31 @@ const LandingPage = () => {
       pos={"relative"}
       overflow={"hidden"}
     >
+      {/* lampu */}
+      <Image
+        as={motion.img}
+        display={"flex"}
+        src="/assets/lampu.png"
+        pos={"absolute"}
+        top={0}
+        minW={"72rem"}
+        fit={"fill"}
+        objectPosition={"center"}
+        variants={{
+          initial: {
+            // rotate: [0, 360],
+            filter: ["brightness(1)", "brightness(1.5)", "brightness(1)"],
+            transition: {
+              duration: 0.75,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "backOut",
+            },
+          },
+        }}
+        animate={["initial"]}
+      />
+
       <Image
         src="/assets/paper.png"
         alt="welcome to maxima 2024"
@@ -41,7 +66,7 @@ const LandingPage = () => {
       <VisuallyHidden>Welcome to Maxima 2024</VisuallyHidden>
 
       {/* button */}
-      {new Date() <= openDate ? (
+      {new Date() >= openDate ? (
         <Stack
           direction={"row"}
           pos={"absolute"}
@@ -127,9 +152,9 @@ const LandingPage = () => {
         as={motion.img}
         src="/assets/rightHand.png"
         pos={"absolute"}
-        w={["16rem", "16rem", "22rem", "24rem", "32rem"]}
+        w={["22rem", "18rem", "22rem", "24rem", "32rem"]}
         bottom={-12}
-        right={[-20, -14, -14, -14, -14, -14]}
+        right={[-40, -14, -14, -14, -14, -14]}
         variants={{
           initial: {
             y: [-13, 11],
@@ -155,9 +180,9 @@ const LandingPage = () => {
         src="/assets/leftHand.png"
         pos={"absolute"}
         // w={["14rem", "16rem", "24rem", "24rem", "32rem"]}
-        w={["14rem", "12rem", "20rem", "22rem", "28rem"]}
+        w={["18rem", "16rem", "20rem", "22rem", "28rem"]}
         bottom={-12}
-        left={-8}
+        left={-20}
         variants={{
           initial: {
             y: [-8, 10],

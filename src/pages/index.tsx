@@ -112,8 +112,8 @@ const LandingPage = () => {
         src="/assets/rightHand.png"
         pos={"absolute"}
         w={["16rem", "16rem", "22rem", "24rem", "32rem"]}
-        bottom={-8}
-        right={[-20, -8, -8, -8, -8, -8]}
+        bottom={-12}
+        right={[-20, -14, -14, -14, -14, -14]}
         variants={{
           initial: {
             y: [-13, 11],
@@ -140,7 +140,7 @@ const LandingPage = () => {
         pos={"absolute"}
         // w={["14rem", "16rem", "24rem", "24rem", "32rem"]}
         w={["14rem", "12rem", "20rem", "22rem", "28rem"]}
-        bottom={-8}
+        bottom={-12}
         left={-8}
         variants={{
           initial: {

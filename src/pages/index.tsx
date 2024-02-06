@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import ModalCheck from "@/components/ModalCheck";
 
 const LandingPage = () => {
-  const openDate = new Date("2024-02-07T00:00:00Z");
+  const openDate = new Date("2024-02-06T00:00:00Z");
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

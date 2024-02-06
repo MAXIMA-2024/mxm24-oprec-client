@@ -3,7 +3,7 @@ import { Box, Stack, useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 
 const DaftarForm = () => {
-  const openDate = new Date("2024-02-07T00:00:00Z");
+  const openDate = new Date("2024-02-06T00:00:00Z");
   const nav = useNavigate();
   const toast = useToast();
 

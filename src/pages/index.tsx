@@ -92,6 +92,7 @@ const LandingPage = () => {
             color={"white"}
             fontFamily={"Minal"}
             letterSpacing={"1px"}
+            zIndex={6}
           >
             REGISTER
           </Button>
@@ -114,6 +115,7 @@ const LandingPage = () => {
             color={"white"}
             fontFamily={"Minal"}
             letterSpacing={"1px"}
+            zIndex={6}
             onClick={handleCheckButtonClick}
           >
             CHECK
@@ -152,9 +154,9 @@ const LandingPage = () => {
         as={motion.img}
         src="/assets/rightHand.png"
         pos={"absolute"}
-        w={["22rem", "18rem", "22rem", "24rem", "32rem"]}
+        w={["20rem", "20rem", "19rem", "23rem", "24rem", "32rem"]}
         bottom={-12}
-        right={[-40, -14, -14, -14, -14, -14]}
+        right={[-40, -20, -20, -40, -14, -14]}
         variants={{
           initial: {
             y: [-13, 11],
@@ -180,7 +182,8 @@ const LandingPage = () => {
         src="/assets/leftHand.png"
         pos={"absolute"}
         // w={["14rem", "16rem", "24rem", "24rem", "32rem"]}
-        w={["18rem", "16rem", "20rem", "22rem", "28rem"]}
+        w={["16rem", "18rem", "18rem", "22rem", "28rem"]}
+        // w={["16rem", "18rem"]}
         bottom={-12}
         left={-20}
         variants={{

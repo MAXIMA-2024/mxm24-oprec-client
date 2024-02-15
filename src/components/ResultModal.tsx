@@ -17,6 +17,7 @@ type InterviewStatus = {
   divisiAlt: string;
   ruangan: string;
   tanggal: string;
+  jam: string;
   status: "Registered" | "Interview" | "Accepted" | "Rejected";
   divisiFinal: string;
 };
@@ -60,7 +61,7 @@ const ResultModal: React.FC<ResultModalProps> = ({
                 <Text fontWeight={"bold"}>
                   Tanggal : {interviewStatus.tanggal}
                 </Text>
-
+                <Text fontWeight={"bold"}>Jam : {interviewStatus.jam}</Text>
                 <Text>Silahkan datang tepat waktu.</Text>
               </>
             )}

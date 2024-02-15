@@ -26,6 +26,7 @@ type InterviewStatus = {
   divisiAlt: string;
   ruangan: string;
   tanggal: string;
+  jam: string;
   status: "Registered" | "Interview" | "Accepted" | "Rejected";
   divisiFinal: string;
 };

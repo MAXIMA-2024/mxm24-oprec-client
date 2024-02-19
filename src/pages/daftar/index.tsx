@@ -8,16 +8,26 @@ const DaftarForm = () => {
   const toast = useToast();
 
   useEffect(() => {
-    if (new Date() < openDate) {
-      toast({
-        title: "Registrasi belum dibuka",
-        description: "Registrasi akan dibuka pada tanggal 7 Februari 2024",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-      nav("/");
-    }
+    // if (new Date() < openDate) {
+    //   toast({
+    //     title: "Registrasi belum dibuka",
+    //     description: "Registrasi akan dibuka pada tanggal 7 Februari 2024",
+    //     status: "error",
+    //     duration: 5000,
+    //     isClosable: true,
+    //   });
+    //   nav("/");
+    // }
+
+    toast({
+      title: "Registrasi telah ditutup",
+      description:
+        "Registrasi OPREC 1 telah ditutup, terima kasih atas partisipasinya!",
+      status: "error",
+      duration: 5000,
+      isClosable: true,
+    });
+    nav("/");
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

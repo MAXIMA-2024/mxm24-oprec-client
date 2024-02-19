@@ -1,4 +1,11 @@
-import { Stack, Image, Button, VisuallyHidden, Box } from "@chakra-ui/react";
+import {
+  Stack,
+  Image,
+  Button,
+  VisuallyHidden,
+  Box,
+  Tooltip,
+} from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -72,30 +79,40 @@ const LandingPage = () => {
           pos={"absolute"}
           bottom={["34%", "26%", "18%", "18%", "18%"]}
         >
-          <Button
-            as={RouterLink}
-            to={"/daftar"}
+          <Tooltip
+            label={"Hai calon Nobles, registrasi oprec telah ditutup!"}
+            aria-label="registrasi telah ditutup"
+            rounded={"full"}
             bgColor={"#b00034"}
-            borderRadius={"full"}
-            p={"1.5rem"}
-            px={"1.5rem"}
-            // mb={["8rem", "8rem", "0", "0", "0"]}
-            cursor={"pointer"}
-            shadow={"lg"}
-            transition="background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
-            _hover={{
-              bgColor: "#a70000",
-              transform: "translateY(-5px)",
-              boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-            }}
-            fontSize={["xl", "3xl", "3xl", "3xl", "3xl"]}
-            color={"white"}
-            fontFamily={"Minal"}
-            letterSpacing={"1px"}
-            zIndex={6}
+            hasArrow
+            placement="top"
           >
-            REGISTER
-          </Button>
+            <Button
+              // as={RouterLink}
+              // to={"/daftar"}
+              isDisabled
+              bgColor={"#b00034"}
+              borderRadius={"full"}
+              p={"1.5rem"}
+              px={"1.5rem"}
+              // mb={["8rem", "8rem", "0", "0", "0"]}
+              cursor={"pointer"}
+              shadow={"lg"}
+              transition="background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+              _hover={{
+                bgColor: "#a70000",
+                transform: "translateY(-5px)",
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+              }}
+              fontSize={["xl", "3xl", "3xl", "3xl", "3xl"]}
+              color={"white"}
+              fontFamily={"Minal"}
+              letterSpacing={"1px"}
+              zIndex={6}
+            >
+              REGISTER
+            </Button>
+          </Tooltip>
 
           <Button
             bgColor={"#b00034"}

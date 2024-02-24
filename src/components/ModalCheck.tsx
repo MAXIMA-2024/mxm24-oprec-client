@@ -76,7 +76,7 @@ const ModalCheck = ({ isOpen, onClose }: ModalCheckProps) => {
         <ModalContent bgColor={"#e9e9c0"} m={"1rem"}>
           <ModalHeader>Check your registration status!</ModalHeader>
           <ModalBody>
-            <Text mb={"10px"}>Enter your NIM in the input box:</Text>
+            <Text mb={"10px"}>NIM:</Text>
             <Input
               type="text"
               placeholder="00000012345"

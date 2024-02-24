@@ -3,10 +3,10 @@ import {
   Image,
   Button,
   VisuallyHidden,
-  Box,
+  // Box,
   Tooltip,
 } from "@chakra-ui/react";
-// import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { useState } from "react";
 
 import { motion } from "framer-motion";
@@ -14,7 +14,11 @@ import { motion } from "framer-motion";
 import ModalCheck from "@/components/ModalCheck";
 
 const LandingPage = () => {
-  const openDate = new Date("2024-02-07T08:00:00+07:00");
+  const openDate = new Date("2024-02-26T00:00:00+07:00");
+  const closeDate = new Date("2024-02-28T17:00:00+07:00");
+
+  const now = new Date();
+  const isRegisOpen = now < closeDate && now >= openDate;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -73,48 +77,32 @@ const LandingPage = () => {
       <VisuallyHidden>Welcome to Maxima 2024</VisuallyHidden>
 
       {/* button */}
-      {new Date() >= openDate ? (
-        <Stack
-          direction={"row"}
-          pos={"absolute"}
-          bottom={["34%", "26%", "18%", "18%", "18%"]}
+      <Stack
+        direction={"row"}
+        pos={"absolute"}
+        bottom={["34%", "26%", "18%", "18%", "18%"]}
+      >
+        <Tooltip
+          label={
+            now < openDate
+              ? "Get ready for OPREC batch 2!"
+              : "OPREC batch 2 has been closed!"
+          }
+          isDisabled={isRegisOpen}
+          aria-label={
+            now < openDate
+              ? "Get ready for OPREC batch 2!"
+              : "OPREC batch 2 has been closed!"
+          }
+          rounded={"full"}
+          bgColor={"#b00034"}
+          hasArrow
+          placement="top"
         >
-          <Tooltip
-            label={"Hai calon Nobles, registrasi oprec telah ditutup!"}
-            aria-label="registrasi telah ditutup"
-            rounded={"full"}
-            bgColor={"#b00034"}
-            hasArrow
-            placement="top"
-          >
-            <Button
-              // as={RouterLink}
-              // to={"/daftar"}
-              isDisabled
-              bgColor={"#b00034"}
-              borderRadius={"full"}
-              p={"1.5rem"}
-              px={"1.5rem"}
-              // mb={["8rem", "8rem", "0", "0", "0"]}
-              cursor={"pointer"}
-              shadow={"lg"}
-              transition="background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
-              _hover={{
-                bgColor: "#a70000",
-                transform: "translateY(-5px)",
-                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
-              }}
-              fontSize={["xl", "3xl", "3xl", "3xl", "3xl"]}
-              color={"white"}
-              fontFamily={"Minal"}
-              letterSpacing={"1px"}
-              zIndex={6}
-            >
-              REGISTER
-            </Button>
-          </Tooltip>
-
           <Button
+            as={isRegisOpen ? RouterLink : undefined}
+            to={isRegisOpen ? "/daftar" : undefined}
+            isDisabled={!isRegisOpen}
             bgColor={"#b00034"}
             borderRadius={"full"}
             p={"1.5rem"}
@@ -133,22 +121,18 @@ const LandingPage = () => {
             fontFamily={"Minal"}
             letterSpacing={"1px"}
             zIndex={6}
-            onClick={handleCheckButtonClick}
           >
-            CHECK
+            REGISTER
           </Button>
-          <ModalCheck isOpen={isModalOpen} onClose={handleCloseModal} />
-          {/* <ModalCheck /> */}
-        </Stack>
-      ) : (
-        <Box
+        </Tooltip>
+
+        <Button
           bgColor={"#b00034"}
           borderRadius={"full"}
-          p={"1rem"}
+          p={"1.5rem"}
           px={"1.5rem"}
-          pos={"absolute"}
-          bottom={["34%", "22%", "14%", "14%", "14%"]}
           // mb={["8rem", "8rem", "0", "0", "0"]}
+          cursor={"pointer"}
           shadow={"lg"}
           transition="background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
           _hover={{
@@ -160,10 +144,14 @@ const LandingPage = () => {
           color={"white"}
           fontFamily={"Minal"}
           letterSpacing={"1px"}
+          zIndex={6}
+          onClick={handleCheckButtonClick}
         >
-          ARE YOU READY?
-        </Box>
-      )}
+          CHECK
+        </Button>
+        <ModalCheck isOpen={isModalOpen} onClose={handleCloseModal} />
+        {/* <ModalCheck /> */}
+      </Stack>
 
       {/* hands */}
 

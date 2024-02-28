@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const DaftarForm = () => {
   const openDate = new Date("2024-02-26T00:00:00+07:00");
-  const closeDate = new Date("2024-02-28T17:00:00+07:00");
+  const closeDate = new Date("2024-02-29T17:00:00+07:00");
 
   const now = new Date();
   const isRegisOpen = now < closeDate && now >= openDate;

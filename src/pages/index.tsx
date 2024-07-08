@@ -4,31 +4,31 @@ import {
   Button,
   VisuallyHidden,
   // Box,
-  Tooltip,
+  // Tooltip,
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import { useState } from "react";
+// import { Link as RouterLink } from "react-router-dom";
+// import { useState } from "react";
 
 import { motion } from "framer-motion";
 
-import ModalCheck from "@/components/ModalCheck";
+// import ModalCheck from "@/components/ModalCheck";
 
 const LandingPage = () => {
-  const openDate = new Date("2024-02-26T00:00:00+07:00");
-  const closeDate = new Date("2024-02-29T17:00:00+07:00");
+  // const openDate = new Date("2024-02-26T00:00:00+07:00");
+  // const closeDate = new Date("2024-02-29T17:00:00+07:00");
 
-  const now = new Date();
-  const isRegisOpen = now < closeDate && now >= openDate;
+  // const now = new Date();
+  // const isRegisOpen = now < closeDate && now >= openDate;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleCheckButtonClick = () => {
-    setIsModalOpen(true);
-  };
+  // const handleCheckButtonClick = () => {
+  //   setIsModalOpen(true);
+  // };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  // const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
   return (
     <Stack
@@ -82,7 +82,7 @@ const LandingPage = () => {
         pos={"absolute"}
         bottom={["34%", "26%", "18%", "18%", "18%"]}
       >
-        <Tooltip
+        {/* <Tooltip
           label={
             now < openDate
               ? "Get ready for OPREC batch 2!"
@@ -124,7 +124,7 @@ const LandingPage = () => {
           >
             REGISTER
           </Button>
-        </Tooltip>
+        </Tooltip> */}
 
         <Button
           bgColor={"#b00034"}
@@ -145,11 +145,12 @@ const LandingPage = () => {
           fontFamily={"Minal"}
           letterSpacing={"1px"}
           zIndex={6}
-          onClick={handleCheckButtonClick}
+          // onClick={handleCheckButtonClick}
         >
-          CHECK
+          {/* CHECK */}
+          COMING SOON
         </Button>
-        <ModalCheck isOpen={isModalOpen} onClose={handleCloseModal} />
+        {/* <ModalCheck isOpen={isModalOpen} onClose={handleCloseModal} /> */}
         {/* <ModalCheck /> */}
       </Stack>
 
